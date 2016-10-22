@@ -34,12 +34,13 @@
           
         </div> 
         <div id = "searchdiv" class = "col-md-12 col-xs-12 col-sm-12 text-center">
-           <button type = "button" class = "btn btn-success"> <span class = "glyphicon glyphicon-search"> </span> 
+           <button id = "searchbutt" type = "button" class = "btn btn-success"> <span class = "glyphicon glyphicon-search"> </span> 
           </button>
         </div>
 
         <div class = "col-md-12 col-xs-12 col-sm-12 text-center">
            <a href = "https://en.wikipedia.org/wiki/Special:Random"> <button id = "buttrand" type = "button" class = "btn btn-primary" >Give me a random article.</button> </a>
+           <p id = "target"> </p>
         </div>
       </div> 
     </div>
@@ -53,9 +54,21 @@
     <script> 
      $(document).ready(function () {
 
+      $("#searchbutt").on("click", function() {
 
+          var searchinput = document.getElementById("userinput").value;
+          
+          searchinput = encodeURIComponent(searchinput); 
 
-     });
+          $.getJSON("https://en.wikipedia.org/w/api.php?callback=?&action=opensearch&search="+searchinput+"&format=json", function(data) {
+
+            $("#target").html(JSON.stringify(data)); 
+
+          }); 
+
+        });
+
+      });
 
 
     </script>
