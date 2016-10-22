@@ -19,3 +19,10 @@ h1 {
 	margin-bottom: 0;
 
 }
+
+li {
+
+	list-style: none;
+	text-align: left;
+
+}
