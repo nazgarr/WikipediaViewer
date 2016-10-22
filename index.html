@@ -40,7 +40,6 @@
 
         <div class = "col-md-12 col-xs-12 col-sm-12 text-center">
            <a href = "https://en.wikipedia.org/wiki/Special:Random"> <button id = "buttrand" type = "button" class = "btn btn-primary" >Give me a random article.</button> </a>
-           <p id = "target"> </p>
            <ul id = "main-list"> 
              
            </ul>
@@ -65,13 +64,11 @@
 
           $.getJSON("https://en.wikipedia.org/w/api.php?callback=?&action=opensearch&search="+searchinput+"&format=json", function(data) {
 
-            $("#target").html(JSON.stringify(data));
+            for (var counter = 0; counter < data[1].length; counter++)  {       
 
-            for (var counter = 0; counter < data[1].length; counter++)  {         
+              $("#main-list").append("<li><h3><a href ="+data[3][counter]+">"+data[1][counter]+"</a></h3></li>");
 
-              $("#main-list").append("<li><h3>"+data[1][counter]+"</h3></li>");  
-
-              $("#main-list").append("<li><h5>"+data[2][counter] + "<li></h5>"); 
+              $("#main-list").append("<li><h5>"+data[2][counter] + "<li></h5>");
 
             };           
 

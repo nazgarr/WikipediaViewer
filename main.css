@@ -20,15 +20,27 @@ h1 {
 
 }
 
+ h5 {
+
+ 	text-align: center;
+
+ }
+
 li {
 
 	list-style: none;
 	text-align: left;
+	padding-top: 2.5px; 
+	padding-bottom: 2.5px;
+
+
+
 
 }
 
 #main-list {
 
-	padding: 0;
+	padding: 0 10px 0 10px;
+	margin: 10px auto 0 auto;
 
 }
