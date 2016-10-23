@@ -22,7 +22,7 @@ h1 {
 
  h5 {
 
- 	text-align: center;
+ 	text-align: left;
 
  }
 
@@ -40,7 +40,7 @@ li {
 
 #main-list {
 
-	padding: 0 10px 0 10px;
+	padding: 0 30px 0 30px;
 	margin: 10px auto 0 auto;
 
 }
