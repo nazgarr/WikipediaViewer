@@ -25,7 +25,7 @@
         <div class = "col-md-12 col-sm-12 col-xs-12 text-center"> 
           <h1> A Wikipedia Viewer.</h1>
           <h4>Using Mediawiki's action API. </h4>
-          <input type = "text"  id = "userinput">
+          <input type = "text"  id = "userinput" autofocus placeholder= "I wanna search for...">
         </div> 
         <div id = "searchdiv" class = "col-md-12 col-xs-12 col-sm-12 text-center">
            <button id = "searchbutt" type = "button" class = "btn btn-success"> <span class = "glyphicon glyphicon-search"> </span> 
@@ -34,9 +34,8 @@
 
         <div class = "col-md-12 col-xs-12 col-sm-12 text-center">
            <a href = "https://en.wikipedia.org/wiki/Special:Random"> <button id = "buttrand" type = "button" class = "btn btn-primary" >Give me a random article.</button> </a>
-           <ul id = "main-list"> 
-
-           </ul>
+           <div id = "target-div">
+           </div>
 
         </div>
       </div> 
@@ -48,52 +47,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <script> 
-     $(document).ready(function() {
-
-      $('#userinput').keypress(function(e) {
-
-        if (e.keyCode == 13) {
-
-          $('#searchbutt').click(); 
-
-        }
-
-       });
-
-     
-
-      $("#searchbutt").on('click', function() {
-
-          var searchinput = document.getElementById("userinput").value;
-
-          if (/\S/.test(searchinput) === false) {
-
-              alert("Input is empty."); 
-
-          }
-          
-             searchinput = encodeURIComponent(searchinput); 
-
-
-          $.getJSON("https://en.wikipedia.org/w/api.php?callback=?&action=opensearch&search="+searchinput+"&format=json", function(data) {
-
-            for (var counter = 0; counter < data[1].length; counter++)  {  
-
-              $("#main-list").append("<li><h3><a href ="+data[3][counter]+">"+data[1][counter]+"</a></h3></li>");
-
-              $("#main-list").append("<li><h5>"+data[2][counter] + "<li></h5>");
-
-                };     
-
-            });
-
-         }); 
-
-       });
-
-
-
+    <script src = "script.js">
     </script>
   </body>
 </html> 
