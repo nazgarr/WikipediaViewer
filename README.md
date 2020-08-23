@@ -1,2 +1,2 @@
 # [WikipediaViewer](https://rankdoby.github.io/WikipediaViewer/)
-A web app that uses Wikipedia's API to search for Wikipedia articles. 
+A web app that uses MediaWiki's API to search for Wikipedia articles. 
